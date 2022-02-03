@@ -110,7 +110,9 @@ var startGame = function() {
 };
 
 // function to end the entire game
-var endGame = function () {
+var endGame = function() {
+  window.alert("The game has now ended. Let's see how you did!");
+  
   // if player is still alive, player wins!
   if (playerHealth > 0) {
     window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
@@ -134,34 +136,35 @@ var shop = function () {
   // ask player what they'd like to do
   var shopOptionPrompt = window.prompt(
     "Would you like to REFILL ypur health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
-  )
+  );
+
   // use switch to carry out action
   switch (shopOptionPrompt) {
     case "REFILL":
     case "refill":
       if (playerMoney >= 7) {
         window.alert("Refilling player's health by 20 for 7 dollars.");
+        
         // increase health and decrease money
         playerHealth = playerHealth + 20;
         playerMoney = playerMoney - 7;
-      }
-      else {
+    }
+    else {
         window.alert("You don't have enough money!");
-      }
-
+    }
       break;
     case "UPGRADE":
     case "upgrade":
       if (playerMoney >= 7) {
         window.alert("Upgrading player's attack by 6 for 7 dollars.");
+        
         // increase attack and decrease money
         playerAttack = playerAttack + 6;
         playerMoney = playerMoney - 7;
-      }
-      else{
+    }
+    else {
         window.alert("You don't have enough money!");
-      }
-
+    }
       break;
     case "LEAVE":
     case "leave":
@@ -171,6 +174,7 @@ var shop = function () {
       break;
     default:
       window.alert("You did not pick a valid option. Try again.");
+      
       // call shop() again to force the player to puck a valid option
       shop();
       break;
